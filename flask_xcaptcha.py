@@ -5,8 +5,8 @@ The new xCaptcha implementation for Flask without Flask-WTF
 __NAME__ = "Flask-xCaptcha"
 __version__ = "0.5.0"
 __license__ = "MIT"
-__author__ = "Mardix, benjilev08"
-__copyright__ = "(c) 2020 Mardix, benjilev08"
+__author__ = "Max Levine"
+__copyright__ = "(c) 2020 Max Levine"
 
 try:
     from flask import request
