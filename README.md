@@ -145,8 +145,7 @@ Initialises the XCaptcha using values set in the app config (if an app is suppli
 
 ### XCaptcha.get_code()
 
-Returns the HTML code to implement.
-This is primarily used for testing.
+Returns the HTML code to replace `{{ xcaptcha }}` with.
 
 ### XCaptcha.verify()
 
