@@ -155,4 +155,4 @@ Returns a bool indicating whether or not the xCaptcha was successfully completed
 
 This will insert an HTML div element containing the captcha into a Jinja2 template
 
-(c) 2020 benjilev08
+(c) 2020 Max Levine
