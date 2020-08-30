@@ -80,13 +80,13 @@ class XCaptcha(object):
         <div class="{DIV_CLASS}" data-sitekey="{SITE_KEY}" data-theme="{THEME}" data-type="{TYPE}" data-size="{SIZE}"\
          data-tabindex="{TABINDEX}"></div>
         """.format(
-            DIV_CLASS=self.div_class,
-            API_URL=self.api_url,
-            SITE_KEY=self.site_key,
-            THEME=self.theme,
-            TYPE=self.type,
-            SIZE=self.size,
-            TABINDEX=self.tabindex
+                DIV_CLASS=self.div_class,
+                API_URL=self.api_url,
+                SITE_KEY=self.site_key,
+                THEME=self.theme,
+                TYPE=self.type,
+                SIZE=self.size,
+                TABINDEX=self.tabindex
             )
         )
 
