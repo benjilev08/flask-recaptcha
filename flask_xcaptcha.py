@@ -28,35 +28,43 @@ class DEFAULTS(object):
 
 
 class XCaptcha(object):
-
-    site_key = None
-    secret_key = None
-    is_enabled = False
-
-    def __init__(self, app=None, site_key=None, secret_key=None, is_enabled=True, **kwargs):
+    def __init__(self,
+        app=None,
+        site_key=None,
+        secret_key=None,
+        is_enabled=DEFAULTS.IS_ENABLED,
+        theme=DEFAULTS.THEME,
+        xtype=DEFAULTS.TYPE,
+        size=DEFAULTS.SIZE,
+        tabindex=DEFAULTS.TABINDEX,
+        verify_url=DEFAULTS.VERIFY_URL,
+        api_url=DEFAULTS.API_URL,
+        div_class=DEFAULTS.DIV_CLASS,
+        **kwargs
+    ):
         if app is not None:
-            self.site_key = app.config.get("XCAPTCHA_SITE_KEY") if site_key is None else site_key
-            self.secret_key = app.config.get('XCAPTCHA_SECRET_KEY') if secret_key is None else secret_key
-            self.is_enabled = app.config.get("XCAPTCHA_ENABLED", DEFAULTS.IS_ENABLED) if is_enabled is None else is_enabled
-            self.theme = app.config.get("XCAPTCHA_THEME", DEFAULTS.THEME) if kwargs.get('theme') is None else kwargs.get('theme')
-            self.type = app.config.get("XCAPTCHA_TYPE", DEFAULTS.TYPE) if kwargs.get('type') is None else kwargs.get('type')
-            self.size = app.config.get("XCAPTCHA_SIZE", DEFAULTS.SIZE) if kwargs.get('size') is None else kwargs.get('size')
-            self.tabindex = app.config.get("XCAPTCHA_TABINDEX", DEFAULTS.TABINDEX) if kwargs.get('tabindex') is None else kwargs.get('tabindex')
-            self.verify_url = app.config.get("XCAPTCHA_VERIFY_URL", DEFAULTS.VERIFY_URL) if kwargs.get('verify_url') is None else kwargs.get('verify_url')
-            self.api_url = app.config.get("XCAPTCHA_API_URL", DEFAULTS.API_URL) if kwargs.get('api_url') is None else kwargs.get('api_url')
-            self.div_class = app.config.get("XCAPTCHA_DIV_CLASS", DEFAULTS.DIV_CLASS) if kwargs.get('div_class') is None else kwargs.get('div_class')
+            self.site_key = app.config.get("XCAPTCHA_SITE_KEY", site_key)
+            self.secret_key = app.config.get('XCAPTCHA_SECRET_KEY', secret_key)
+            self.is_enabled = app.config.get("XCAPTCHA_ENABLED", is_enabled)
+            self.theme = app.config.get("XCAPTCHA_THEME", theme)
+            self.type = app.config.get("XCAPTCHA_TYPE", xtype)
+            self.size = app.config.get("XCAPTCHA_SIZE", size)
+            self.tabindex = app.config.get("XCAPTCHA_TABINDEX", tabindex)
+            self.verify_url = app.config.get("XCAPTCHA_VERIFY_URL", verify_url)
+            self.api_url = app.config.get("XCAPTCHA_API_URL", api_url)
+            self.div_class = app.config.get("XCAPTCHA_DIV_CLASS", div_class)
 
         elif site_key is not None:
             self.site_key = site_key
             self.secret_key = secret_key
             self.is_enabled = is_enabled
-            self.theme = kwargs.get('theme', DEFAULTS.THEME)
-            self.type = kwargs.get('type', DEFAULTS.TYPE)
-            self.size = kwargs.get('size', DEFAULTS.SIZE)
-            self.tabindex = kwargs.get('tabindex', DEFAULTS.TABINDEX)
-            self.verify_url = kwargs.get('verify_url', DEFAULTS.VERIFY_URL)
-            self.api_url = kwargs.get('api_url', DEFAULTS.API_URL)
-            self.div_class = kwargs.get('div_class', DEFAULTS.DIV_CLASS)
+            self.theme = theme
+            self.type = xtype
+            self.size = size
+            self.tabindex = tabindex
+            self.verify_url = verify_url
+            self.api_url = api_url
+            self.div_class = div_class
 
         @app.context_processor
         def get_code():

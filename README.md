@@ -139,7 +139,7 @@ def submit():
 
 ## API
 
-### XCaptcha.__init__(app=None, site_key=None, secret_key=None, is_enabled=True, **kwargs)
+### XCaptcha.__init__(app=None, site_key=None, secret_key=None, is_enabled=True, theme="light", xtype="image", size="normal", tabindex=0, verify_url="https://www.google.com/recaptcha/api/siteverify", api_url="//www.google.com/recaptcha/api.js", div_class="g-recaptcha",**kwargs)
 
 Initialises the XCaptcha using values set in the app config (if an app is supplied), and otherwise using directly passed arguments
 
