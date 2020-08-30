@@ -94,7 +94,7 @@ class XCaptcha(object):
         if self.is_enabled:
             data = {
                 "secret": self.secret_key,
-                "response": response or request.form.get(f'{self.div_class}-response'),
+                "response": response or request.form.get('{}-response'.format(self.div_class)),
                 "remoteip": remote_ip or request.environ.get('REMOTE_ADDR')
             }
 
