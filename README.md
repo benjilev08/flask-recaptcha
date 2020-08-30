@@ -14,15 +14,13 @@ This project was forked from [Mardix's Flask-ReCaptcha](https://github.com/mardi
 
 ---
 
-## Install
+## Installation
 
 `pip install flask-xcaptcha`
 
-## Usage
+## Usage - Minimal Implementation
 
-### Minimal Implementation
-
-#### Google ReCaptcha (default)
+### Google ReCaptcha - Using app variable
 
 ```python
 from flask import Flask
@@ -36,7 +34,18 @@ app.config.update(
 xcaptcha = XCaptcha(app=app)
 ```
 
-#### hCaptcha
+### Google ReCaptcha - Without app variable
+
+```python
+from flask_xcaptcha import XCaptcha
+
+xcaptcha = XCaptcha(
+    site_key=#<your_site_key>,
+    secret_key=#<your_secret_key>
+)
+```
+
+### hCaptcha - Using app variable
 
 ```python
 from flask import Flask
@@ -51,6 +60,20 @@ app.config.update(
     XCAPTCHA_DIV_CLASS=h-captcha
 )
 xcaptcha = XCaptcha(app=app)
+```
+
+### hCaptcha - Without app variable
+
+```python
+from flask_xcaptcha import XCaptcha
+
+xcaptcha = XCaptcha(
+    site_key=#<your_site_key>,
+    secret_key=#<your_secret_key>,
+    verify_url=https://hcaptcha.com/siteverify,
+    api_url=https://hcaptcha.com/1/api.js,
+    div_class=h-captcha
+)
 ```
 
 ### App Config Variables
